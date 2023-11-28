@@ -10,7 +10,7 @@ add_subdirectory(libespeak-ng)
 if(BUILD_ESPEAK_NG_EXE)
   add_executable(espeak-ng-bin espeak-ng.c)
   target_link_libraries(
-    espeak-ng-bin PRIVATE espeak-ng espeak-ng-config
+    espeak-ng-bin PRIVATE espeak-ng espeak-ng-config espeak-include
   )
   if (MINGW)
     target_link_options(espeak-ng-bin PRIVATE "-static-libstdc++" "-static")
