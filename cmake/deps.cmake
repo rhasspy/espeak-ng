@@ -15,7 +15,7 @@ if (MBROLA_BIN)
 endif(MBROLA_BIN)
 if (SONIC_LIB AND SONIC_INC)
   set(HAVE_LIBSONIC ON)
-else()
+elseif(USE_LIBSONIC)
   FetchContent_Declare(sonic-git
     GIT_REPOSITORY https://github.com/waywardgeek/sonic.git
     GIT_TAG fbf75c3d6d846bad3bb3d456cbc5d07d9fd8c104
