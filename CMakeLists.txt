@@ -6,6 +6,19 @@ project(espeak-ng
   HOMEPAGE_URL "https://github.com/espeak-ng/espeak-ng"
 )
 
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+set(BUILD_RPATH_USE_ORIGIN TRUE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+if(NOT APPLE)
+  set(ESPEAK_NG_RPATH_ORIGIN "$ORIGIN")
+else()
+  set(ESPEAK_NG_RPATH_ORIGIN "@loader_path")
+endif()
+
+set(CMAKE_INSTALL_RPATH ${ESPEAK_NG_RPATH_ORIGIN})
+set(CMAKE_BUILD_RPATH ${ESPEAK_NG_RPATH_ORIGIN})
+
 option(BUILD_ESPEAK_NG_EXE "Whether to build espeak-ng-bin" ON)
 option(BUILD_ESPEAK_NG_TESTS "Whether to build tests" ON)
 
